@@ -1,0 +1,1 @@
+/home/klaymean/.config/zsh/.zshrc
