@@ -2,7 +2,29 @@
 
 # Enable colors and change prompt:
 autoload -U colors && colors	# Load colors
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%2~%{$fg[red]%}]%{$reset_color%}$%b "
+
+
+#for git branch
+autoload -Uz vcs_info
+setopt prompt_subst
+precmd() { vcs_info }
+
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:git:*' formats ' (%b)'
+
+#git_prompt() {
+#    local branch
+#    branch=$(git branch --show-current 2>/dev/null)
+#    [[ -n $branch ]] && echo " ($branch)"
+#}
+#
+#
+#setopt prompt_subst
+
+
+#PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%2~%{$fg[red]%}]%{$reset_color%}$%b "
+PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%2~%{$fg[cyan]%}\${vcs_info_msg_0_}%{$fg[red]%}]%{$reset_color%}$%b "
+
 setopt autocd		# Automatically cd into typed directory.
 stty stop undef		# Disable ctrl-s to freeze terminal.
 setopt interactive_comments
@@ -102,3 +124,5 @@ alias renv='cd && cd amir/work/radar && source renv/bin/activate'
 
 #RPROMPT='%{$fg[green]%}${VIRTUAL_ENV:t}%{$reset_color%}'
 
+
+. "$HOME/.local/share/../bin/env"

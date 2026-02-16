@@ -16,20 +16,20 @@ vim.g.maplocalleader = "\\"
 vim.opt.clipboard = "unnamedplus"
 
 -- Copy (yank) to system clipboard with Ctrl+C
-vim.keymap.set({ "n", "v" }, "<C-c>", '"+y', { desc = "Yank to clipboard" })
+vim.keymap.set({ "n", "v" }, "<A-c>", '"+y', { desc = "Yank to clipboard" })
 
 -- Paste from system clipboard with Ctrl+V
 --vim.keymap.set({ "n", "v" }, "<C-v>", '"+p', { desc = "Paste from clipboard" })
-vim.keymap.set("i", "<C-v>", '<C-r>+', { desc = "Paste from clipboard" })
-vim.keymap.set("c", "<C-v>", '<C-r>+', { desc = "Paste from clipboard in cmdline" })
+vim.keymap.set("i", "<A-v>", '<C-r>+', { desc = "Paste from clipboard" })
+vim.keymap.set("c", "<A-v>", '<C-r>+', { desc = "Paste from clipboard in cmdline" })
 
 
 
 -- Yank to system clipboard with Alt+c
-vim.keymap.set({ "n", "v" }, "<A-c>", '"+y', { desc = "Yank to clipboard" })
+--vim.keymap.set({ "n", "v" }, "<A-c>", '"+y', { desc = "Yank to clipboard" })
 
 -- Paste from system clipboard with Alt+v
-vim.keymap.set({ "n", "v" }, "<A-v>", '"+p', { desc = "Paste from clipboard" })
+--vim.keymap.set({ "n", "v" }, "<A-v>", '"+p', { desc = "Paste from clipboard" })
 
 
 require("config.lazy")
